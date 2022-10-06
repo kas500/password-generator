@@ -34,7 +34,6 @@ function generatePassword() {
                         (isNumeric ? numbers.charAt(Math.random()*numbers.length):"")+
                         (isSpecCharsIncluded ? specChars.charAt(Math.random()*specChars.length):"");
   }
-  console.log(passwordString)
   return passwordString;
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
 }
