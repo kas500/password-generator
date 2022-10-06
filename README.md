@@ -26,14 +26,14 @@ When you click on the "Generate Password" button, the app offers several prerequ
 
 ![upper case confirmation](./assets/images/confirm_3.png)
 
-### Confirm box (numbers). Pic 4
+### Confirm box (numbers). Pic 5
 
 ![numbers confirmation](./assets/images/confirm_4.png)
 
-### Confirm box (special characters). Pic 5
+### Confirm box (special characters). Pic 6
 
 ![special characters confirmation](./assets/images/confirm_5.png)
 
-### Script source code. Pic 6
+### Script source code. Pic 7
 
 ![special characters confirmation](./assets/images/source_code.png)
