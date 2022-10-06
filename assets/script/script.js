@@ -20,7 +20,7 @@ function generatePassword() {
   let isUpperCaseIncluded = window.confirm("Include uppercase letters?");
   let isNumeric = window.confirm("Include numbers?");
   let isSpecCharsIncluded = window.confirm("Include spec characters?");
-  // initialize password string
+  // initializing password string and characters sets
   var passwordString = "";
   var upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowerCaseCaracters = 'abcdefghijklmnopqrstuvwxyz';
@@ -37,11 +37,11 @@ function generatePassword() {
   return passwordString;
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
 }
-
+// check password length and digits only
 function returnPasswordLength(){
-  var length = null;
-  while((length === null) || (length < 8 || length > 128)){
-    length = window.prompt("Please choose a length (>=8 chars and <=128 chars)");
+  var passwordLength = null;
+  while(((passwordLength === null) || (passwordLength < 8 || passwordLength > 128)) || !(/^[0-9]+$/.test(passwordLength))){
+    passwordLength = window.prompt("Please choose a length (>=8 chars and <=128 chars)");
   }
-  return length;
+  return passwordLength;
 } 
