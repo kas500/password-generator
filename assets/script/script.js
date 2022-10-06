@@ -15,12 +15,28 @@ generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
 
 function generatePassword() {
-  let length = returnPasswordLength();
+  // Gathering preconditions
+  let passwordLength = returnPasswordLength();
   let isLowercaseIncluded = window.confirm("Include lowercase letters?");
   let isUpperCaseIncluded = window.confirm("Include uppercase letters?");
   let isNumeric = window.confirm("Include numbers?");
   let isSpecCharsIncluded = window.confirm("Include spec characters?");
-  return "p@ssw0rd";
+  // initialize password string
+  var passwordString = "";
+  var upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  var lowerCaseCaracters = 'abcdefghijklmnopqrstuvwxyz';
+  var numbers = '0123456789';
+  var specChars = "!#$%&'()*+,-.:;<=>?@[]^_`{|}~";
+  // generating password string with preconditions selected
+  while(passwordString.length < passwordLength)
+   {
+      passwordString+= (isLowercaseIncluded ? lowerCaseCaracters.charAt(Math.random()*lowerCaseCaracters.length) : "") +
+                        (isUpperCaseIncluded ? upperCaseCharacters.charAt(Math.random()*upperCaseCharacters.length):"") +
+                        (isNumeric ? numbers.charAt(Math.random()*numbers.length):"")+
+                        (isSpecCharsIncluded ? specChars.charAt(Math.random()*specChars.length):"");
+  }
+  console.log(passwordString)
+  return passwordString;
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
 }
 
