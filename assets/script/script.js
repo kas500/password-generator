@@ -15,7 +15,7 @@ generateBtn.addEventListener("click", writePassword);
 ///////////////////////// DO NOT CHANGE ABOVE HERE /////////////////////////
 
 function generatePassword() {
-  let length = window.prompt("Choose a length in boundaries (no less 8 characters and no more then 128 characters)");
+  let length = returnPasswordLength();
   let isLowercaseIncluded = window.confirm("Include lowercase letters?");
   let isUpperCaseIncluded = window.confirm("Include uppercase letters?");
   let isNumeric = window.confirm("Include numbers?");
@@ -23,3 +23,11 @@ function generatePassword() {
   return "p@ssw0rd";
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
 }
+
+function returnPasswordLength(){
+  var length = null;
+  while((length === null) || (length < 8 || length > 128)){
+    length = window.prompt("Please choose a length (>=8 chars and <=128 chars)");
+  }
+  return length;
+} 
