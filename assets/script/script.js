@@ -37,7 +37,7 @@ function generatePassword() {
   return passwordString;
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
 }
-// check password length and digits only
+// check password length and digits only and not null
 function returnPasswordLength(){
   var passwordLength = null;
   while(((passwordLength === null) || (passwordLength < 8 || passwordLength > 128)) || !(/^[0-9]+$/.test(passwordLength))){
