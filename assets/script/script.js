@@ -16,11 +16,12 @@ generateBtn.addEventListener("click", writePassword);
 function generatePassword() {
   // Gathering preconditions
   let passwordLength = returnPasswordLength();
-  let isLowercaseIncluded = window.confirm("Include lowercase letters?");
-  let isUpperCaseIncluded = window.confirm("Include uppercase letters?");
-  let isNumeric = window.confirm("Include numbers?");
-  let isSpecCharsIncluded = window.confirm("Include spec characters?");
-  // initializing password string and characters sets
+  var conditions;
+  //validate preconditions
+  while(!(conditions=preReqSetUp())){
+    alert("At least one of the four conditions must be set");
+  }
+
   var passwordString = "";
   var upperCaseCharacters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var lowerCaseCaracters = 'abcdefghijklmnopqrstuvwxyz';
@@ -29,10 +30,10 @@ function generatePassword() {
   // generating password string with preconditions selected
   while(passwordString.length < passwordLength)
    {
-      passwordString+= (isLowercaseIncluded ? lowerCaseCaracters.charAt(Math.random()*lowerCaseCaracters.length) : "") +
-                        (isUpperCaseIncluded ? upperCaseCharacters.charAt(Math.random()*upperCaseCharacters.length):"") +
-                        (isNumeric ? numbers.charAt(Math.random()*numbers.length):"")+
-                        (isSpecCharsIncluded ? specChars.charAt(Math.random()*specChars.length):"");
+      passwordString+= (conditions.isLowercaseIncluded ? lowerCaseCaracters.charAt(Math.random()*lowerCaseCaracters.length) : "") +
+                        (conditions.isUpperCaseIncluded ? upperCaseCharacters.charAt(Math.random()*upperCaseCharacters.length):"") +
+                        (conditions.isNumeric ? numbers.charAt(Math.random()*numbers.length):"")+
+                        (conditions.isSpecCharsIncluded ? specChars.charAt(Math.random()*specChars.length):"");
   }
   return passwordString;
   /////////////////////////// WRITE YOUR CODE HERE /////////////////////////
@@ -44,4 +45,21 @@ function returnPasswordLength(){
     passwordLength = window.prompt("Please choose a length (>=8 chars and <=128 chars)");
   }
   return passwordLength;
-} 
+}
+  function preReqSetUp(){
+    var conditions = {
+          isLowercaseIncluded: false,
+          isUpperCaseIncluded: false,
+          isNumeric: false,
+          isSpecCharsIncluded: false
+    }
+    conditions.isLowercaseIncluded = window.confirm("Include lowercase letters?");
+    conditions.isUpperCaseIncluded = window.confirm("Include uppercase letters?");
+    conditions.isNumeric = window.confirm("Include numbers?");
+    conditions.isSpecCharsIncluded = window.confirm("Include spec characters?");
+    return (!conditions.isLowercaseIncluded&&
+            !conditions.isUpperCaseIncluded&&
+            !conditions.isNumeric&&
+            !conditions.isSpecCharsIncluded)?false:conditions;
+  }
+
